@@ -77,7 +77,25 @@
   // let displayNav = false;
 
   // Event listeners to control the functionality
+  //also pagination event listeners
   searchForm.addEventListener('submit', submitSearch);
+  nextBtn.addEventListener('click', nextPage);
+  previousBtn.addEventListener('click', previousPage);
+
+  //add the pagination functions
+  function nextPage(e) {
+    pageNumber++;
+    fetchResults(e);
+  };
+
+  function previousPage(e) {
+    if (pageNumber > 0) {
+      pageNumber--;
+    } else {
+      return;
+    }
+    fetchResults(e);
+  }
 
   //add the submit search function
   function submitSearch(e) {
@@ -177,6 +195,8 @@
       }
     }
   }
+
+  //pagination here
 
 
   </script>
